@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tours",
+  "info": {
+    "singularName": "tour",
+    "pluralName": "tours",
+    "displayName": "Tour",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "minLength": 7
+    },
+    "lengthOfTime": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "pricePerUnit": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "string",
+      "default": "UGX",
+      "required": true
+    },
+    "numberOfPeoplePerUnit": {
+      "type": "integer"
+    },
+    "introduction": {
+      "type": "richtext"
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::location.location",
+      "mappedBy": "tours"
+    },
+    "images": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::image.image",
+      "mappedBy": "tours"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

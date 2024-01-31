@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": [
+        "UGX",
+        "USD",
+        "CAD",
+        "TZS",
+        "KES",
+        "RWF"
+      ]
+    },
+    "inStock": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "images": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::image.image",
+      "mappedBy": "products"
+    }
+  }
+}
